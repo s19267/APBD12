@@ -1,0 +1,18 @@
+﻿@model APBD12.Models.Patient
+@{
+    ViewData["Title"] = "AddPatient";
+}
+
+<h2>Podaj pacjete:</h2>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Imię: @Html.TextBoxFor(x => x.FirstName)</p>
+        <p>Nazwisko: @Html.TextBoxFor(x => x.LastName)</p>
+        <p>Data Urodzenia: @Html.TextBoxFor(x => x.Birthdate)</p>
+
+        <input type="submit" value="Wyslij dane" />
+    }
+</body>
+

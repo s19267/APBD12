@@ -1,0 +1,55 @@
+﻿@model IEnumerable<APBD12.Models.Patient>
+
+<style>
+    table, tr, td {
+        border: 2px solid black;  
+    }
+
+    td {
+        width: 150px;
+    }
+    
+    button{
+        width:  200px;
+    }
+</style>
+
+<h1>Lista doktorów</h1>
+
+<p>
+    <table>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>
+                    @patient.FirstName
+                </td>
+                <td>
+                    @patient.LastName
+                </td>
+                <td>
+                    @patient.IdPatient
+                </td>
+                <td>
+                    @patient.Birthdate
+                </td>
+                <td>
+                    <button>
+                        <input type="button" name="button" class="button1" value="Detale"
+                               onclick="location.href='@Url.Action("GetPatientDetails", patient)'"/>
+                    </button>
+                </td>
+                <td>
+                    <button>
+                        <input type="button" name="button" class="button1" value="Usuń"
+                               onclick="location.href='@Url.Action("DeletePatient", patient)'"/>
+                    </button>
+                </td>
+            </tr>
+        }
+    </table>
+</p>
+<button>
+    <input type="button" name="button" class="button1" value="Dodaj"
+           onclick="location.href='@Url.Action("AddPatient")'"/>
+</button>
